@@ -4,8 +4,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure HTTP basic authorization: basicAuth
 
 $config = new Swagger\Client\Configuration();
-$config ->setUsername('YOUR_MESSENTE_API_USERNAME')
-        ->setPassword('YOUR_MESSENTE_API_PASSWORD');
+$config ->setUsername('<MESSENTE_API_USERNAME>')
+        ->setPassword('<MESSENTE_API_PASSWORD>');
 
 $apiInstance = new Swagger\Client\Api\OmnimessageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -13,20 +13,28 @@ $apiInstance = new Swagger\Client\Api\OmnimessageApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\Omnimessage();
+$omnimessage = new \Swagger\Client\Model\Omnimessage();
+$omnimessage->setTo("<phone number in international format>");
+
 $viber = new \Swagger\Client\Model\Viber();
-$viber->setSender("<phone_number or sender name (optional)>");
+$viber->setSender("Messente");
+$sms->setSender("<phone_number or sender name (optional)>");
 $viber->setText("Hello from PHP!");
-$body->setViber($viber);
-$body->setTo("<phone_number>");
+
+$sms = new \Swagger\Client\Model\SMS();
+$sms->setSender("<phone_number or sender name (optional)>");
+$sms->setText("Hello from PHP!");
+
+$omnimessage->setViber($viber);
+$omnimessage->setSms($sms);
 
 
-$scenarioItem = new \Swagger\Client\Model\ScenarioItem();
-$scenarioItem->setChannel();
-$body->setScenarios([$scenarioItem]);
+$viberScenarioItem = new \Swagger\Client\Model\ScenarioItem(Array("channel"=> "viber"));
+$smsScenarioItem = new \Swagger\Client\Model\ScenarioItem(Array("channel"=> "sms"));
+$omnimessage->setScenarios([$viberScenarioItem, $smsScenarioItem]);
 
 try {
-    $result = $apiInstance->sendOmnimessage($body);
+    $result = $apiInstance->sendOmnimessage($omnimessage);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->sendOmnimessage: ', $e->getMessage(), PHP_EOL;

@@ -1,22 +1,19 @@
 {
-    "name": "messente/messente-omnichannel-php",
+    "name": "messente/GIT_REPO_ID",
     "version": "0.0.1",
-    "description": "PHP API client for Messente Omnichannel API",
+    "description": "",
     "keywords": [
+        "swagger",
         "php",
         "sdk",
-        "api",
-        "messaging",
-        "sms",
-        "viber",
-        "omnichanenl"
+        "api"
     ],
-    "homepage": "https://messente.com",
-    "license": "Apache 2.0",
+    "homepage": "http://swagger.io",
+    "license": "proprietary",
     "authors": [
         {
-            "name": "Messente",
-            "homepage": "https://github.com/messente/messente-omnichannel-php"
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
         }
     ],
     "require": {
