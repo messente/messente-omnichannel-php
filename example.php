@@ -18,7 +18,7 @@ $omnimessage->setTo("<phone number in international format>");
 
 $viber = new \Swagger\Client\Model\Viber();
 $viber->setSender("Messente");
-$sms->setSender("<phone_number or sender name (optional)>");
+$viber->setSender("<phone_number or sender name (optional)>");
 $viber->setText("Hello from PHP!");
 
 $sms = new \Swagger\Client\Model\SMS();
