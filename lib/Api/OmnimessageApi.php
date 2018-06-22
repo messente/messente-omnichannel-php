@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace Messente\Omnichannel\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use Messente\Omnichannel\ApiException;
+use Messente\Omnichannel\Configuration;
+use Messente\Omnichannel\HeaderSelector;
+use Messente\Omnichannel\ObjectSerializer;
 
 /**
  * OmnimessageApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -92,11 +92,11 @@ class OmnimessageApi
      *
      * Sends an Omnimessage
      *
-     * @param  \Swagger\Client\Model\Omnimessage $body Omnimessage to be sent (required)
+     * @param  \Messente\Omnichannel\Model\Omnimessage $body Omnimessage to be sent (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \Messente\Omnichannel\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\OmniMessageCreateSuccessResponse
+     * @return \Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse
      */
     public function sendOmnimessage($body)
     {
@@ -109,15 +109,15 @@ class OmnimessageApi
      *
      * Sends an Omnimessage
      *
-     * @param  \Swagger\Client\Model\Omnimessage $body Omnimessage to be sent (required)
+     * @param  \Messente\Omnichannel\Model\Omnimessage $body Omnimessage to be sent (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \Messente\Omnichannel\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\OmniMessageCreateSuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendOmnimessageWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\OmniMessageCreateSuccessResponse';
+        $returnType = '\Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse';
         $request = $this->sendOmnimessageRequest($body);
 
         try {
@@ -169,7 +169,7 @@ class OmnimessageApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\OmniMessageCreateSuccessResponse',
+                        '\Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class OmnimessageApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorResponse',
+                        '\Messente\Omnichannel\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -192,7 +192,7 @@ class OmnimessageApi
      *
      * Sends an Omnimessage
      *
-     * @param  \Swagger\Client\Model\Omnimessage $body Omnimessage to be sent (required)
+     * @param  \Messente\Omnichannel\Model\Omnimessage $body Omnimessage to be sent (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -212,14 +212,14 @@ class OmnimessageApi
      *
      * Sends an Omnimessage
      *
-     * @param  \Swagger\Client\Model\Omnimessage $body Omnimessage to be sent (required)
+     * @param  \Messente\Omnichannel\Model\Omnimessage $body Omnimessage to be sent (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendOmnimessageAsyncWithHttpInfo($body)
     {
-        $returnType = '\Swagger\Client\Model\OmniMessageCreateSuccessResponse';
+        $returnType = '\Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse';
         $request = $this->sendOmnimessageRequest($body);
 
         return $this->client
@@ -262,7 +262,7 @@ class OmnimessageApi
     /**
      * Create request for operation 'sendOmnimessage'
      *
-     * @param  \Swagger\Client\Model\Omnimessage $body Omnimessage to be sent (required)
+     * @param  \Messente\Omnichannel\Model\Omnimessage $body Omnimessage to be sent (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

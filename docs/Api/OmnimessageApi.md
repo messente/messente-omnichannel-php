@@ -1,4 +1,4 @@
-# Swagger\Client\OmnimessageApi
+# Messente\Omnichannel\OmnimessageApi
 
 All URIs are relative to *https://api.messente.com/v1*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **sendOmnimessage**
-> \Swagger\Client\Model\OmniMessageCreateSuccessResponse sendOmnimessage($body)
+> \Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse sendOmnimessage($body)
 
 Sends an Omnimessage
 
@@ -20,18 +20,18 @@ Sends an Omnimessage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new Swagger\Client\Api\OmnimessageApi(
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\Omnimessage(); // \Swagger\Client\Model\Omnimessage | Omnimessage to be sent
+$body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 try {
     $result = $apiInstance->sendOmnimessage($body);
@@ -46,11 +46,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
+ **body** | [**\Messente\Omnichannel\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
 
 ### Return type
 
-[**\Swagger\Client\Model\OmniMessageCreateSuccessResponse**](../Model/OmniMessageCreateSuccessResponse.md)
+[**\Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse**](../Model/OmniMessageCreateSuccessResponse.md)
 
 ### Authorization
 

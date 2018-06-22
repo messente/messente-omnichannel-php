@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace Messente\Omnichannel\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \Messente\Omnichannel\ObjectSerializer;
 
 /**
  * OmniMessageCreateSuccessResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'messages' => '\Swagger\Client\Model\MessageResult[]',
+        'messages' => '\Messente\Omnichannel\Model\MessageResult[]',
         'to' => 'string',
         'omnimessageId' => 'string'
     ];
@@ -219,7 +219,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return \Swagger\Client\Model\MessageResult[]
+     * @return \Messente\Omnichannel\Model\MessageResult[]
      */
     public function getMessages()
     {
@@ -229,7 +229,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \Swagger\Client\Model\MessageResult[] $messages List of messages that compose the Omnimessage
+     * @param \Messente\Omnichannel\Model\MessageResult[] $messages List of messages that compose the Omnimessage
      *
      * @return $this
      */

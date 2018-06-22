@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace Messente\Omnichannel\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \Messente\Omnichannel\ObjectSerializer;
 
 /**
  * Omnimessage Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,9 +57,9 @@ class Omnimessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'scenarios' => '\Swagger\Client\Model\Scenarios',
-        'viber' => '\Swagger\Client\Model\Viber',
-        'sms' => '\Swagger\Client\Model\SMS',
+        'scenarios' => '\Messente\Omnichannel\Model\Scenarios',
+        'viber' => '\Messente\Omnichannel\Model\Viber',
+        'sms' => '\Messente\Omnichannel\Model\SMS',
         'to' => 'string',
         'drlUrl' => 'string'
     ];
@@ -237,7 +237,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Gets scenarios
      *
-     * @return \Swagger\Client\Model\Scenarios
+     * @return \Messente\Omnichannel\Model\Scenarios
      */
     public function getScenarios()
     {
@@ -247,7 +247,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets scenarios
      *
-     * @param \Swagger\Client\Model\Scenarios $scenarios scenarios
+     * @param \Messente\Omnichannel\Model\Scenarios $scenarios scenarios
      *
      * @return $this
      */
@@ -261,7 +261,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Gets viber
      *
-     * @return \Swagger\Client\Model\Viber
+     * @return \Messente\Omnichannel\Model\Viber
      */
     public function getViber()
     {
@@ -271,7 +271,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets viber
      *
-     * @param \Swagger\Client\Model\Viber $viber Viber message content
+     * @param \Messente\Omnichannel\Model\Viber $viber Viber message content
      *
      * @return $this
      */
@@ -285,7 +285,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Gets sms
      *
-     * @return \Swagger\Client\Model\SMS
+     * @return \Messente\Omnichannel\Model\SMS
      */
     public function getSms()
     {
@@ -295,7 +295,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets sms
      *
-     * @param \Swagger\Client\Model\SMS $sms SMS message content
+     * @param \Messente\Omnichannel\Model\SMS $sms SMS message content
      *
      * @return $this
      */

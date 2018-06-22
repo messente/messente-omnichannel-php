@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace Messente\Omnichannel\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \Messente\Omnichannel\ObjectSerializer;
 
 /**
  * Scenarios Class Doc Comment
  *
  * @category Class
  * @description Defines the order in which message channels are tried.
- * @package  Swagger\Client
+ * @package  Messente\Omnichannel
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

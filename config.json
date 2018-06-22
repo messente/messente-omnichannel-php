@@ -2,5 +2,7 @@
 	"artifactVersion": "0.0.1",
 	"variableNamingConvention": "camelCase",
 	"gitUserId": "messente",
-	"packagePath": "src"
+	"packagePath": ".",
+	"invokerPackage": "Messente\\Omnichannel"
+
 }
