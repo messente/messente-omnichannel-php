@@ -9,7 +9,7 @@
         "messaging",
         "sms",
         "viber",
-        "omnichanenl"
+        "omnichannel"
     ],
     "homepage": "https://messente.com",
     "license": "Apache 2.0",
@@ -20,14 +20,14 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": ">=5.4",
         "ext-curl": "*",
         "ext-json": "*",
-        "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "ext-mbstring": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
+        "phpunit/phpunit": "~4.8",
+        "satooshi/php-coveralls": "~1.0",
         "squizlabs/php_codesniffer": "~2.6",
         "friendsofphp/php-cs-fixer": "~1.12"
     },

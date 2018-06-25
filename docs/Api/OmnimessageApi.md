@@ -20,21 +20,14 @@ Sends an Omnimessage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
+Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
-
-$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+$api_instance = new Messente\Omnichannel\Api\OmnimessageApi();
 $body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 try {
-    $result = $apiInstance->sendOmnimessage($body);
+    $result = $api_instance->sendOmnimessage($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->sendOmnimessage: ', $e->getMessage(), PHP_EOL;
