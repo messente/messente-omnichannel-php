@@ -33,7 +33,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/./autoload.php');
+    require_once('/path/to/autoload.php');
 ```
 
 ## Tests
@@ -61,6 +61,8 @@ $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi();
 $body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 $omnimessage = new \Messente\Omnichannel\Model\Omnimessage();
+
+// optionally send the message at same specified time
 $omnimessage->setTo("<phone number in international format>");
 
 $viber = new \Messente\Omnichannel\Model\Viber();
@@ -92,11 +94,17 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DeliveryReportApi* | [**retrieveDeliveryReport**](docs/Api/DeliveryReportApi.md#retrievedeliveryreport) | **GET** /omnimessage/{omnimessage_id}/status | 
+*OmnimessageApi* | [**cancelScheduledMessage**](docs/Api/OmnimessageApi.md#cancelscheduledmessage) | **DELETE** /omnimessage/{omnimessage_id} | Cancels a scheduled Omnimessage
 *OmnimessageApi* | [**sendOmnimessage**](docs/Api/OmnimessageApi.md#sendomnimessage) | **POST** /omnimessage | Sends an Omnimessage
 
 
 ## Documentation For Models
 
+ - [Channel](docs/Model/Channel.md)
+ - [DeliveryReportResponse](docs/Model/DeliveryReportResponse.md)
+ - [DeliveryResult](docs/Model/DeliveryResult.md)
+ - [Err](docs/Model/Err.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [MessageResult](docs/Model/MessageResult.md)
  - [OmniMessageCreateSuccessResponse](docs/Model/OmniMessageCreateSuccessResponse.md)
@@ -104,6 +112,7 @@ Class | Method | HTTP request | Description
  - [SMS](docs/Model/SMS.md)
  - [ScenarioItem](docs/Model/ScenarioItem.md)
  - [Scenarios](docs/Model/Scenarios.md)
+ - [Status](docs/Model/Status.md)
  - [Viber](docs/Model/Viber.md)
 
 

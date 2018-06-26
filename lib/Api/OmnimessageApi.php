@@ -88,6 +88,92 @@ class OmnimessageApi
     }
 
     /**
+     * Operation cancelScheduledMessage
+     *
+     * Cancels a scheduled Omnimessage
+     *
+     * @param string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @throws \Messente\Omnichannel\ApiException on non-2xx response
+     * @return void
+     */
+    public function cancelScheduledMessage($omnimessageId)
+    {
+        list($response) = $this->cancelScheduledMessageWithHttpInfo($omnimessageId);
+        return $response;
+    }
+
+    /**
+     * Operation cancelScheduledMessageWithHttpInfo
+     *
+     * Cancels a scheduled Omnimessage
+     *
+     * @param string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @throws \Messente\Omnichannel\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cancelScheduledMessageWithHttpInfo($omnimessageId)
+    {
+        // verify the required parameter 'omnimessageId' is set
+        if ($omnimessageId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $omnimessageId when calling cancelScheduledMessage');
+        }
+        // parse inputs
+        $resourcePath = "/omnimessage/{omnimessage_id}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($omnimessageId !== null) {
+            $resourcePath = str_replace(
+                "{" . "omnimessage_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($omnimessageId),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/omnimessage/{omnimessage_id}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Messente\Omnichannel\Model\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation sendOmnimessage
      *
      * Sends an Omnimessage

@@ -58,7 +58,8 @@ class Omnimessage implements ArrayAccess
         'viber' => '\Messente\Omnichannel\Model\Viber',
         'sms' => '\Messente\Omnichannel\Model\SMS',
         'to' => 'string',
-        'drlUrl' => 'string'
+        'drlUrl' => 'string',
+        'timeToSend' => '\DateTime'
     ];
 
     /**
@@ -70,7 +71,8 @@ class Omnimessage implements ArrayAccess
         'viber' => null,
         'sms' => null,
         'to' => null,
-        'drlUrl' => 'url'
+        'drlUrl' => 'url',
+        'timeToSend' => 'date-time'
     ];
 
     public static function swaggerTypes()
@@ -92,7 +94,8 @@ class Omnimessage implements ArrayAccess
         'viber' => 'viber',
         'sms' => 'sms',
         'to' => 'to',
-        'drlUrl' => 'drl_url'
+        'drlUrl' => 'drl_url',
+        'timeToSend' => 'time_to_send'
     ];
 
 
@@ -105,7 +108,8 @@ class Omnimessage implements ArrayAccess
         'viber' => 'setViber',
         'sms' => 'setSms',
         'to' => 'setTo',
-        'drlUrl' => 'setDrlUrl'
+        'drlUrl' => 'setDrlUrl',
+        'timeToSend' => 'setTimeToSend'
     ];
 
 
@@ -118,7 +122,8 @@ class Omnimessage implements ArrayAccess
         'viber' => 'getViber',
         'sms' => 'getSms',
         'to' => 'getTo',
-        'drlUrl' => 'getDrlUrl'
+        'drlUrl' => 'getDrlUrl',
+        'timeToSend' => 'getTimeToSend'
     ];
 
     public static function attributeMap()
@@ -157,6 +162,7 @@ class Omnimessage implements ArrayAccess
         $this->container['sms'] = isset($data['sms']) ? $data['sms'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
         $this->container['drlUrl'] = isset($data['drlUrl']) ? $data['drlUrl'] : null;
+        $this->container['timeToSend'] = isset($data['timeToSend']) ? $data['timeToSend'] : null;
     }
 
     /**
@@ -228,7 +234,7 @@ class Omnimessage implements ArrayAccess
 
     /**
      * Sets viber
-     * @param \Messente\Omnichannel\Model\Viber $viber Viber message content
+     * @param \Messente\Omnichannel\Model\Viber $viber
      * @return $this
      */
     public function setViber($viber)
@@ -249,7 +255,7 @@ class Omnimessage implements ArrayAccess
 
     /**
      * Sets sms
-     * @param \Messente\Omnichannel\Model\SMS $sms SMS message content
+     * @param \Messente\Omnichannel\Model\SMS $sms
      * @return $this
      */
     public function setSms($sms)
@@ -297,6 +303,27 @@ class Omnimessage implements ArrayAccess
     public function setDrlUrl($drlUrl)
     {
         $this->container['drlUrl'] = $drlUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeToSend
+     * @return \DateTime
+     */
+    public function getTimeToSend()
+    {
+        return $this->container['timeToSend'];
+    }
+
+    /**
+     * Sets timeToSend
+     * @param \DateTime $timeToSend Optional parameter for sending messages at some specific time in the future. Time must be specified in the 8601 format. If no timezone is specified, then the timezone is assumed to be UTC. Examples: Time specified with timezone: 2018-06-22T09:05:07+00:00 Time specified in UTC: 2018-06-22T09:05:07Z Time specified without timezone: 2018-06-22T09:05 (equivalent to 2018-06-22T09:05+00:00)
+     * @return $this
+     */
+    public function setTimeToSend($timeToSend)
+    {
+        $this->container['timeToSend'] = $timeToSend;
 
         return $this;
     }

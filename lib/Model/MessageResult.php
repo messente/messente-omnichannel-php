@@ -55,7 +55,7 @@ class MessageResult implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'messageId' => 'string',
-        'channel' => 'string',
+        'channel' => '\Messente\Omnichannel\Model\Channel',
         'sender' => 'string'
     ];
 
@@ -126,22 +126,8 @@ class MessageResult implements ArrayAccess
         return self::$getters;
     }
 
-    const CHANNEL_SMS = 'sms';
-    const CHANNEL_VIBER = 'viber';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getChannelAllowableValues()
-    {
-        return [
-            self::CHANNEL_SMS,
-            self::CHANNEL_VIBER,
-        ];
-    }
     
 
     /**
@@ -170,14 +156,6 @@ class MessageResult implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = $this->getChannelAllowableValues();
-        if (!in_array($this->container['channel'], $allowed_values)) {
-            $invalid_properties[] = sprintf(
-                "invalid value for 'channel', must be one of '%s'",
-                implode("', '", $allowed_values)
-            );
-        }
-
         return $invalid_properties;
     }
 
@@ -190,10 +168,6 @@ class MessageResult implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = $this->getChannelAllowableValues();
-        if (!in_array($this->container['channel'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -221,7 +195,7 @@ class MessageResult implements ArrayAccess
 
     /**
      * Gets channel
-     * @return string
+     * @return \Messente\Omnichannel\Model\Channel
      */
     public function getChannel()
     {
@@ -230,20 +204,11 @@ class MessageResult implements ArrayAccess
 
     /**
      * Sets channel
-     * @param string $channel The message delivery channel that will be used
+     * @param \Messente\Omnichannel\Model\Channel $channel
      * @return $this
      */
     public function setChannel($channel)
     {
-        $allowed_values = $this->getChannelAllowableValues();
-        if (!is_null($channel) && !in_array($channel, $allowed_values)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'channel', must be one of '%s'",
-                    implode("', '", $allowed_values)
-                )
-            );
-        }
         $this->container['channel'] = $channel;
 
         return $this;

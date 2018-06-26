@@ -1,6 +1,6 @@
 <?php
 /**
- * ScenarioItem
+ * DeliveryReportResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Messente\Omnichannel\Model;
 use \ArrayAccess;
 
 /**
- * ScenarioItem Class Doc Comment
+ * DeliveryReportResponse Class Doc Comment
  *
  * @category    Class
  * @package     Messente\Omnichannel
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ScenarioItem implements ArrayAccess
+class DeliveryReportResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,16 @@ class ScenarioItem implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ScenarioItem';
+    protected static $swaggerModelName = 'DeliveryReportResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'channel' => '\Messente\Omnichannel\Model\Channel',
-        'validity' => 'int'
+        'messages' => '\Messente\Omnichannel\Model\DeliveryResult[]',
+        'to' => 'string',
+        'omnimessageId' => 'string'
     ];
 
     /**
@@ -63,8 +64,9 @@ class ScenarioItem implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'channel' => null,
-        'validity' => null
+        'messages' => null,
+        'to' => null,
+        'omnimessageId' => 'uuid'
     ];
 
     public static function swaggerTypes()
@@ -82,8 +84,9 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'channel' => 'channel',
-        'validity' => 'validity'
+        'messages' => 'messages',
+        'to' => 'to',
+        'omnimessageId' => 'omnimessage_id'
     ];
 
 
@@ -92,8 +95,9 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'channel' => 'setChannel',
-        'validity' => 'setValidity'
+        'messages' => 'setMessages',
+        'to' => 'setTo',
+        'omnimessageId' => 'setOmnimessageId'
     ];
 
 
@@ -102,8 +106,9 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'channel' => 'getChannel',
-        'validity' => 'getValidity'
+        'messages' => 'getMessages',
+        'to' => 'getTo',
+        'omnimessageId' => 'getOmnimessageId'
     ];
 
     public static function attributeMap()
@@ -137,8 +142,9 @@ class ScenarioItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['validity'] = isset($data['validity']) ? $data['validity'] : null;
+        $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
+        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
+        $this->container['omnimessageId'] = isset($data['omnimessageId']) ? $data['omnimessageId'] : null;
     }
 
     /**
@@ -150,9 +156,6 @@ class ScenarioItem implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['channel'] === null) {
-            $invalid_properties[] = "'channel' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -165,51 +168,69 @@ class ScenarioItem implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['channel'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets channel
-     * @return \Messente\Omnichannel\Model\Channel
+     * Gets messages
+     * @return \Messente\Omnichannel\Model\DeliveryResult[]
      */
-    public function getChannel()
+    public function getMessages()
     {
-        return $this->container['channel'];
+        return $this->container['messages'];
     }
 
     /**
-     * Sets channel
-     * @param \Messente\Omnichannel\Model\Channel $channel
+     * Sets messages
+     * @param \Messente\Omnichannel\Model\DeliveryResult[] $messages List of messages that compose the Omnimessage
      * @return $this
      */
-    public function setChannel($channel)
+    public function setMessages($messages)
     {
-        $this->container['channel'] = $channel;
+        $this->container['messages'] = $messages;
 
         return $this;
     }
 
     /**
-     * Gets validity
-     * @return int
+     * Gets to
+     * @return string
      */
-    public function getValidity()
+    public function getTo()
     {
-        return $this->container['validity'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets validity
-     * @param int $validity After how many minutes this channel is considered as failed and the next channel is attempted
+     * Sets to
+     * @param string $to Recipient phone number in international number format
      * @return $this
      */
-    public function setValidity($validity)
+    public function setTo($to)
     {
-        $this->container['validity'] = $validity;
+        $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
+     * Gets omnimessageId
+     * @return string
+     */
+    public function getOmnimessageId()
+    {
+        return $this->container['omnimessageId'];
+    }
+
+    /**
+     * Sets omnimessageId
+     * @param string $omnimessageId Unique identifier for the Omnimessage
+     * @return $this
+     */
+    public function setOmnimessageId($omnimessageId)
+    {
+        $this->container['omnimessageId'] = $omnimessageId;
 
         return $this;
     }

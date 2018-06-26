@@ -1,6 +1,6 @@
 <?php
 /**
- * ScenarioItem
+ * DeliveryResult
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Messente\Omnichannel\Model;
 use \ArrayAccess;
 
 /**
- * ScenarioItem Class Doc Comment
+ * DeliveryResult Class Doc Comment
  *
  * @category    Class
  * @package     Messente\Omnichannel
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ScenarioItem implements ArrayAccess
+class DeliveryResult implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,18 @@ class ScenarioItem implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ScenarioItem';
+    protected static $swaggerModelName = 'DeliveryResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'status' => '\Messente\Omnichannel\Model\Status',
         'channel' => '\Messente\Omnichannel\Model\Channel',
-        'validity' => 'int'
+        'messageId' => 'string',
+        'error' => 'string',
+        'err' => '\Messente\Omnichannel\Model\Err'
     ];
 
     /**
@@ -63,8 +66,11 @@ class ScenarioItem implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'status' => null,
         'channel' => null,
-        'validity' => null
+        'messageId' => 'uuid',
+        'error' => null,
+        'err' => null
     ];
 
     public static function swaggerTypes()
@@ -82,8 +88,11 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'status' => 'status',
         'channel' => 'channel',
-        'validity' => 'validity'
+        'messageId' => 'message_id',
+        'error' => 'error',
+        'err' => 'err'
     ];
 
 
@@ -92,8 +101,11 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'status' => 'setStatus',
         'channel' => 'setChannel',
-        'validity' => 'setValidity'
+        'messageId' => 'setMessageId',
+        'error' => 'setError',
+        'err' => 'setErr'
     ];
 
 
@@ -102,8 +114,11 @@ class ScenarioItem implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'status' => 'getStatus',
         'channel' => 'getChannel',
-        'validity' => 'getValidity'
+        'messageId' => 'getMessageId',
+        'error' => 'getError',
+        'err' => 'getErr'
     ];
 
     public static function attributeMap()
@@ -137,8 +152,11 @@ class ScenarioItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['validity'] = isset($data['validity']) ? $data['validity'] : null;
+        $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['err'] = isset($data['err']) ? $data['err'] : null;
     }
 
     /**
@@ -150,9 +168,6 @@ class ScenarioItem implements ArrayAccess
     {
         $invalid_properties = [];
 
-        if ($this->container['channel'] === null) {
-            $invalid_properties[] = "'channel' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -165,12 +180,30 @@ class ScenarioItem implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['channel'] === null) {
-            return false;
-        }
         return true;
     }
 
+
+    /**
+     * Gets status
+     * @return \Messente\Omnichannel\Model\Status
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Messente\Omnichannel\Model\Status $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
 
     /**
      * Gets channel
@@ -194,22 +227,64 @@ class ScenarioItem implements ArrayAccess
     }
 
     /**
-     * Gets validity
-     * @return int
+     * Gets messageId
+     * @return string
      */
-    public function getValidity()
+    public function getMessageId()
     {
-        return $this->container['validity'];
+        return $this->container['messageId'];
     }
 
     /**
-     * Sets validity
-     * @param int $validity After how many minutes this channel is considered as failed and the next channel is attempted
+     * Sets messageId
+     * @param string $messageId Unique identifier for the message
      * @return $this
      */
-    public function setValidity($validity)
+    public function setMessageId($messageId)
     {
-        $this->container['validity'] = $validity;
+        $this->container['messageId'] = $messageId;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     * @param string $error Human-readable description of what went wrong, *null* in case of success or if the messages has not been processed yet
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets err
+     * @return \Messente\Omnichannel\Model\Err
+     */
+    public function getErr()
+    {
+        return $this->container['err'];
+    }
+
+    /**
+     * Sets err
+     * @param \Messente\Omnichannel\Model\Err $err
+     * @return $this
+     */
+    public function setErr($err)
+    {
+        $this->container['err'] = $err;
 
         return $this;
     }

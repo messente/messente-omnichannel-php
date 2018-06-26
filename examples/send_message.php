@@ -9,6 +9,8 @@ $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi();
 $body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 $omnimessage = new \Messente\Omnichannel\Model\Omnimessage();
+
+// optionally send the message at same specified time
 $omnimessage->setTo("<phone number in international format>");
 
 $viber = new \Messente\Omnichannel\Model\Viber();

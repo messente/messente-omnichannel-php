@@ -35,6 +35,7 @@ use \ArrayAccess;
  * Viber Class Doc Comment
  *
  * @category    Class
+ * @description Viber message content
  * @package     Messente\Omnichannel
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
