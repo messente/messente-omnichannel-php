@@ -4,13 +4,13 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessage_id}/status | 
+[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessage_id}/status | Retrieves the delivery report for the Omnimessage
 
 
 # **retrieveDeliveryReport**
 > \Messente\Omnichannel\Model\DeliveryReportResponse retrieveDeliveryReport($omnimessageId)
 
-
+Retrieves the delivery report for the Omnimessage
 
 ### Example
 ```php
@@ -18,14 +18,21 @@ Method | HTTP request | Description
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Messente\Omnichannel\Api\DeliveryReportApi();
-$omnimessageId = "omnimessageId_example"; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
+
+$apiInstance = new Messente\Omnichannel\Api\DeliveryReportApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
 
 try {
-    $result = $api_instance->retrieveDeliveryReport($omnimessageId);
+    $result = $apiInstance->retrieveDeliveryReport($omnimessageId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryReportApi->retrieveDeliveryReport: ', $e->getMessage(), PHP_EOL;
@@ -37,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | **string**| UUID of the Omnimessage to for which the delivery report is to be retrieved |
+ **omnimessageId** | [**string**](../Model/.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved |
 
 ### Return type
 
@@ -45,12 +52,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

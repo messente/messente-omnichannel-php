@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryReportResponseTest
+ * ResponseErrorCodeTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace Messente\Omnichannel;
 
 /**
- * DeliveryReportResponseTest Class Doc Comment
+ * ResponseErrorCodeTest Class Doc Comment
  *
  * @category    Class
- * @description DeliveryReportResponse
+ * @description Matches the following ResponseErrorTitles This field is a constant. * 101 - Not found * 102 - Forbidden * 103 - Unauthorized * 104 - Invalid data * 105 - Internal Server Error * 106 - Missing data
  * @package     Messente\Omnichannel
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DeliveryReportResponseTest extends \PHPUnit_Framework_TestCase
+class ResponseErrorCodeTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,9 @@ class DeliveryReportResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DeliveryReportResponse"
+     * Test "ResponseErrorCode"
      */
-    public function testDeliveryReportResponse()
-    {
-    }
-
-    /**
-     * Test attribute "messages"
-     */
-    public function testPropertyMessages()
-    {
-    }
-
-    /**
-     * Test attribute "to"
-     */
-    public function testPropertyTo()
-    {
-    }
-
-    /**
-     * Test attribute "omnimessageId"
-     */
-    public function testPropertyOmnimessageId()
+    public function testResponseErrorCode()
     {
     }
 }

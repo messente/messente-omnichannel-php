@@ -19,14 +19,21 @@ Cancels a scheduled Omnimessage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Messente\Omnichannel\Api\OmnimessageApi();
-$omnimessageId = "omnimessageId_example"; // string | UUID of the scheduled Omnimessage to be cancelled
+
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled Omnimessage to be cancelled
 
 try {
-    $api_instance->cancelScheduledMessage($omnimessageId);
+    $apiInstance->cancelScheduledMessage($omnimessageId);
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->cancelScheduledMessage: ', $e->getMessage(), PHP_EOL;
 }
@@ -37,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | **string**| UUID of the scheduled Omnimessage to be cancelled |
+ **omnimessageId** | [**string**](../Model/.md)| UUID of the scheduled Omnimessage to be cancelled |
 
 ### Return type
 
@@ -45,21 +52,19 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendOmnimessage**
-> \Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse sendOmnimessage($body)
+> \Messente\Omnichannel\Model\OmniMessageCreateSuccessResponse sendOmnimessage($omnimessage)
 
 Sends an Omnimessage
-
-
 
 ### Example
 ```php
@@ -67,14 +72,21 @@ Sends an Omnimessage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$api_instance = new Messente\Omnichannel\Api\OmnimessageApi();
-$body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
+
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 try {
-    $result = $api_instance->sendOmnimessage($body);
+    $result = $apiInstance->sendOmnimessage($omnimessage);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->sendOmnimessage: ', $e->getMessage(), PHP_EOL;
@@ -86,7 +98,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Messente\Omnichannel\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
+ **omnimessage** | [**\Messente\Omnichannel\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
 
 ### Return type
 
@@ -94,12 +106,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../../README.md#basicAuth)
+[basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

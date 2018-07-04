@@ -1,6 +1,6 @@
 <?php
 /**
- * Status
+ * ResponseErrorTitle
  *
  * PHP version 5
  *
@@ -31,29 +31,25 @@ namespace Messente\Omnichannel\Model;
 use \Messente\Omnichannel\ObjectSerializer;
 
 /**
- * Status Class Doc Comment
+ * ResponseErrorTitle Class Doc Comment
  *
  * @category Class
- * @description The human-readable equivalent for this field is contained in \&quot;error\&quot;. This value is *null* if the message is still being processed.
+ * @description Textual value which corresponds to ResponseErrorCode
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Status
+class ResponseErrorTitle
 {
     /**
      * Possible values of this enum
      */
-    const ACK = 'ACK';
-    const DELIVRD = 'DELIVRD';
-    const UNDELIV = 'UNDELIV';
-    const FAILED = 'FAILED';
-    const UNKNOWN = 'UNKNOWN';
-    const ACCEPTD = 'ACCEPTD';
-    const REJECTD = 'REJECTD';
-    const DELETED = 'DELETED';
-    const EXPIRED = 'EXPIRED';
-    const NACK = 'NACK';
+    const NOT_FOUND = 'Not found';
+    const FORBIDDEN = 'Forbidden';
+    const UNAUTHORIZED = 'Unauthorized';
+    const INVALID_DATA = 'Invalid data';
+    const INTERNAL_SERVER_ERROR = 'Internal Server Error';
+    const MISSING_DATA = 'Missing data';
     
     /**
      * Gets allowable values of the enum
@@ -62,16 +58,12 @@ class Status
     public static function getAllowableEnumValues()
     {
         return [
-            self::ACK,
-            self::DELIVRD,
-            self::UNDELIV,
-            self::FAILED,
-            self::UNKNOWN,
-            self::ACCEPTD,
-            self::REJECTD,
-            self::DELETED,
-            self::EXPIRED,
-            self::NACK,
+            self::NOT_FOUND,
+            self::FORBIDDEN,
+            self::UNAUTHORIZED,
+            self::INVALID_DATA,
+            self::INTERNAL_SERVER_ERROR,
+            self::MISSING_DATA,
         ];
     }
 }

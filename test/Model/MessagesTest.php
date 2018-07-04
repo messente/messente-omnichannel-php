@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryReportResponseTest
+ * MessagesTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace Messente\Omnichannel;
 
 /**
- * DeliveryReportResponseTest Class Doc Comment
+ * MessagesTest Class Doc Comment
  *
  * @category    Class
- * @description DeliveryReportResponse
+ * @description Messages
  * @package     Messente\Omnichannel
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DeliveryReportResponseTest extends \PHPUnit_Framework_TestCase
+class MessagesTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,9 @@ class DeliveryReportResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DeliveryReportResponse"
+     * Test "Messages"
      */
-    public function testDeliveryReportResponse()
-    {
-    }
-
-    /**
-     * Test attribute "messages"
-     */
-    public function testPropertyMessages()
-    {
-    }
-
-    /**
-     * Test attribute "to"
-     */
-    public function testPropertyTo()
-    {
-    }
-
-    /**
-     * Test attribute "omnimessageId"
-     */
-    public function testPropertyOmnimessageId()
+    public function testMessages()
     {
     }
 }

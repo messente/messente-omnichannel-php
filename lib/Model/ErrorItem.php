@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryResult
+ * ErrorItem
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Messente\Omnichannel\ObjectSerializer;
 
 /**
- * DeliveryResult Class Doc Comment
+ * ErrorItem Class Doc Comment
  *
  * @category Class
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DeliveryResult implements ModelInterface, ArrayAccess
+class ErrorItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DeliveryResult';
+    protected static $openAPIModelName = 'ErrorItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\Messente\Omnichannel\Model\Status',
-        'channel' => '\Messente\Omnichannel\Model\Channel',
-        'messageId' => 'string',
-        'error' => 'string',
-        'err' => 'int'
+        'title' => '\Messente\Omnichannel\Model\ResponseErrorTitle',
+        'detail' => 'string',
+        'code' => '\Messente\Omnichannel\Model\ResponseErrorCode',
+        'source' => 'string'
     ];
 
     /**
@@ -70,11 +69,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'channel' => null,
-        'messageId' => 'uuid',
-        'error' => null,
-        'err' => 'int32'
+        'title' => null,
+        'detail' => null,
+        'code' => null,
+        'source' => null
     ];
 
     /**
@@ -104,11 +102,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'channel' => 'channel',
-        'messageId' => 'message_id',
-        'error' => 'error',
-        'err' => 'err'
+        'title' => 'title',
+        'detail' => 'detail',
+        'code' => 'code',
+        'source' => 'source'
     ];
 
     /**
@@ -117,11 +114,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'channel' => 'setChannel',
-        'messageId' => 'setMessageId',
-        'error' => 'setError',
-        'err' => 'setErr'
+        'title' => 'setTitle',
+        'detail' => 'setDetail',
+        'code' => 'setCode',
+        'source' => 'setSource'
     ];
 
     /**
@@ -130,11 +126,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'channel' => 'getChannel',
-        'messageId' => 'getMessageId',
-        'error' => 'getError',
-        'err' => 'getErr'
+        'title' => 'getTitle',
+        'detail' => 'getDetail',
+        'code' => 'getCode',
+        'source' => 'getSource'
     ];
 
     /**
@@ -178,41 +173,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const ERR_0 = 0;
-    const ERR_1 = 1;
-    const ERR_2 = 2;
-    const ERR_3 = 3;
-    const ERR_4 = 4;
-    const ERR_5 = 5;
-    const ERR_6 = 6;
-    const ERR_7 = 7;
-    const ERR_8 = 8;
-    const ERR_9 = 9;
-    const ERR_999 = 999;
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getErrAllowableValues()
-    {
-        return [
-            self::ERR_0,
-            self::ERR_1,
-            self::ERR_2,
-            self::ERR_3,
-            self::ERR_4,
-            self::ERR_5,
-            self::ERR_6,
-            self::ERR_7,
-            self::ERR_8,
-            self::ERR_9,
-            self::ERR_999,
-        ];
-    }
     
 
     /**
@@ -230,11 +192,10 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['err'] = isset($data['err']) ? $data['err'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['detail'] = isset($data['detail']) ? $data['detail'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
     }
 
     /**
@@ -245,14 +206,6 @@ class DeliveryResult implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getErrAllowableValues();
-        if (!is_null($this->container['err']) && !in_array($this->container['err'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'err', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -270,130 +223,97 @@ class DeliveryResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets status
+     * Gets title
      *
-     * @return \Messente\Omnichannel\Model\Status|null
+     * @return \Messente\Omnichannel\Model\ResponseErrorTitle|null
      */
-    public function getStatus()
+    public function getTitle()
     {
-        return $this->container['status'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets status
+     * Sets title
      *
-     * @param \Messente\Omnichannel\Model\Status|null $status status
+     * @param \Messente\Omnichannel\Model\ResponseErrorTitle|null $title title
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setTitle($title)
     {
-        $this->container['status'] = $status;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets channel
-     *
-     * @return \Messente\Omnichannel\Model\Channel|null
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param \Messente\Omnichannel\Model\Channel|null $channel channel
-     *
-     * @return $this
-     */
-    public function setChannel($channel)
-    {
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets messageId
+     * Gets detail
      *
      * @return string|null
      */
-    public function getMessageId()
+    public function getDetail()
     {
-        return $this->container['messageId'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets messageId
+     * Sets detail
      *
-     * @param string|null $messageId Unique identifier for the message
+     * @param string|null $detail Free form more detailed description of the error.
      *
      * @return $this
      */
-    public function setMessageId($messageId)
+    public function setDetail($detail)
     {
-        $this->container['messageId'] = $messageId;
+        $this->container['detail'] = $detail;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets code
+     *
+     * @return \Messente\Omnichannel\Model\ResponseErrorCode|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param \Messente\Omnichannel\Model\ResponseErrorCode|null $code code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
      *
      * @return string|null
      */
-    public function getError()
+    public function getSource()
     {
-        return $this->container['error'];
+        return $this->container['source'];
     }
 
     /**
-     * Sets error
+     * Sets source
      *
-     * @param string|null $error Human-readable description of what went wrong, *null* in case of success or if the messages has not been processed yet
+     * @param string|null $source Describes which field is causing the issue in the payload, null for non 400 status code responses
      *
      * @return $this
      */
-    public function setError($error)
+    public function setSource($source)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets err
-     *
-     * @return int|null
-     */
-    public function getErr()
-    {
-        return $this->container['err'];
-    }
-
-    /**
-     * Sets err
-     *
-     * @param int|null $err Machine-readable error code, `null` when the message has not been processed yet * 0 - No error * 1 - Delivery failure * 2 - Sending message expired * 3 - Invalid number * 4 - Error crediting account * 5 - Invalid number format * 6 - Too many identical messages * 7 - Sender name not allowed * 8 - Operator blacklisted * 9 - Unroutable * 999 - General temporary error
-     *
-     * @return $this
-     */
-    public function setErr($err)
-    {
-        $allowedValues = $this->getErrAllowableValues();
-        if (!is_null($err) && !in_array($err, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'err', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['err'] = $err;
+        $this->container['source'] = $source;
 
         return $this;
     }
