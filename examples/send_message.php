@@ -1,32 +1,31 @@
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('<MESSENTE_API_USERNAME>');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('<MESSENTE_API_PASSWORD>');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+	-> setUsername('<MESSENTE_API_USERNAME>')
+	-> setPassword('<MESSENTE_API_PASSWORD>');
 
-$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi();
-$body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
-$omnimessage = new \Messente\Omnichannel\Model\Omnimessage();
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+		new GuzzleHttp\Client(),
+		$config
+);
 
-// optionally send the message at same specified time
-$omnimessage->setTo("<phone number in international format>");
+$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(
+	["to" => "<recipient phonenumber>"]
+);
 
-$viber = new \Messente\Omnichannel\Model\Viber();
-$viber->setSender("<sender name (optional)>");
-$viber->setText("Hello from PHP!");
+$viber = new \Messente\Omnichannel\Model\Viber(
+	["text" => "Hello Viber!"]
+);
 
-$sms = new \Messente\Omnichannel\Model\SMS();
-$sms->setSender("<sender name (optional)>");
-$sms->setText("Hello from PHP!");
+$sms = new \Messente\Omnichannel\Model\SMS(
+	["text" => "Hello SMS!"]
+);
 
-$omnimessage->setViber($viber);
-$omnimessage->setSms($sms);
+$omnimessage->setMessages([$viber, $sms]);
 
-$viberScenarioItem = new \Messente\Omnichannel\Model\ScenarioItem(Array("channel"=> "viber"));
-$smsScenarioItem = new \Messente\Omnichannel\Model\ScenarioItem(Array("channel"=> "sms"));
-$omnimessage->setScenarios([$viberScenarioItem, $smsScenarioItem]);
 
 try {
     $result = $apiInstance->sendOmnimessage($omnimessage);

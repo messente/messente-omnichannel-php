@@ -2,10 +2,9 @@
 
 This is the PHP library from Messente Omnichannel API
 
-
 ## Requirements
 
-PHP 5.4.0 and later
+PHP 5.5 and later
 
 ## Installation & Usage
 ### Composer
@@ -33,7 +32,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 ```
 
 ## Tests
@@ -54,31 +53,30 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setUsername('<MESSENTE_API_USERNAME>');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()->setPassword('<MESSENTE_API_PASSWORD>');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+	-> setUsername('<MESSENTE_API_USERNAME>')
+	-> setPassword('<MESSENTE_API_PASSWORD>');
 
-$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi();
-$body = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
-$omnimessage = new \Messente\Omnichannel\Model\Omnimessage();
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+		new GuzzleHttp\Client(),
+		$config
+);
 
-// optionally send the message at same specified time
-$omnimessage->setTo("<phone number in international format>");
+$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(
+	["to" => "<recipient phonenumber>"]
+);
 
-$viber = new \Messente\Omnichannel\Model\Viber();
-$viber->setSender("<sender name (optional)>");
-$viber->setText("Hello from PHP!");
+$viber = new \Messente\Omnichannel\Model\Viber(
+	["text" => "Hello Viber!"]
+);
 
-$sms = new \Messente\Omnichannel\Model\SMS();
-$sms->setSender("<sender name (optional)>");
-$sms->setText("Hello from PHP!");
+$sms = new \Messente\Omnichannel\Model\SMS(
+	["text" => "Hello SMS!"]
+);
 
-$omnimessage->setViber($viber);
-$omnimessage->setSms($sms);
+$omnimessage->setMessages([$viber, $sms]);
 
-$viberScenarioItem = new \Messente\Omnichannel\Model\ScenarioItem(Array("channel"=> "viber"));
-$smsScenarioItem = new \Messente\Omnichannel\Model\ScenarioItem(Array("channel"=> "sms"));
-$omnimessage->setScenarios([$viberScenarioItem, $smsScenarioItem]);
 
 try {
     $result = $apiInstance->sendOmnimessage($omnimessage);
@@ -94,7 +92,7 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DeliveryReportApi* | [**retrieveDeliveryReport**](docs/Api/DeliveryReportApi.md#retrievedeliveryreport) | **GET** /omnimessage/{omnimessage_id}/status | 
+*DeliveryReportApi* | [**retrieveDeliveryReport**](docs/Api/DeliveryReportApi.md#retrievedeliveryreport) | **GET** /omnimessage/{omnimessage_id}/status | Retrieves the delivery report for the Omnimessage
 *OmnimessageApi* | [**cancelScheduledMessage**](docs/Api/OmnimessageApi.md#cancelscheduledmessage) | **DELETE** /omnimessage/{omnimessage_id} | Cancels a scheduled Omnimessage
 *OmnimessageApi* | [**sendOmnimessage**](docs/Api/OmnimessageApi.md#sendomnimessage) | **POST** /omnimessage | Sends an Omnimessage
 
@@ -105,13 +103,16 @@ Class | Method | HTTP request | Description
  - [DeliveryReportResponse](docs/Model/DeliveryReportResponse.md)
  - [DeliveryResult](docs/Model/DeliveryResult.md)
  - [Err](docs/Model/Err.md)
+ - [ErrorItem](docs/Model/ErrorItem.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
+ - [Message](docs/Model/Message.md)
  - [MessageResult](docs/Model/MessageResult.md)
+ - [Messages](docs/Model/Messages.md)
  - [OmniMessageCreateSuccessResponse](docs/Model/OmniMessageCreateSuccessResponse.md)
  - [Omnimessage](docs/Model/Omnimessage.md)
+ - [ResponseErrorCode](docs/Model/ResponseErrorCode.md)
+ - [ResponseErrorTitle](docs/Model/ResponseErrorTitle.md)
  - [SMS](docs/Model/SMS.md)
- - [ScenarioItem](docs/Model/ScenarioItem.md)
- - [Scenarios](docs/Model/Scenarios.md)
  - [Status](docs/Model/Status.md)
  - [Viber](docs/Model/Viber.md)
 
