@@ -57,7 +57,7 @@ class Message implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => '\Messente\Omnichannel\Model\Channel',
+        'channel' => 'string',
         'sender' => 'string',
         'validity' => 'int'
     ];
@@ -226,7 +226,7 @@ class Message implements ModelInterface, ArrayAccess
     /**
      * Gets channel
      *
-     * @return \Messente\Omnichannel\Model\Channel
+     * @return string
      */
     public function getChannel()
     {
@@ -236,7 +236,7 @@ class Message implements ModelInterface, ArrayAccess
     /**
      * Sets channel
      *
-     * @param \Messente\Omnichannel\Model\Channel $channel channel
+     * @param string $channel channel
      *
      * @return $this
      */

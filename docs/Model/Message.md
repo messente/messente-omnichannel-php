@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | [**\Messente\Omnichannel\Model\Channel**](Channel.md) |  | 
+**channel** | **string** |  | 
 **sender** | **string** | Phone number or alphanumeric sender name | [optional] 
 **validity** | **int** | After how many minutes this channel is considered as failed and the next channel is attempted | [optional] 
 
