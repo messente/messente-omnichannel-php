@@ -6,7 +6,7 @@ $config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
 	-> setUsername('<MESSENTE_API_USERNAME>')
 	-> setPassword('<MESSENTE_API_PASSWORD>');
 
-$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+$apiInstance = new Messente\Omnichannel\Api\DeliveryReportApi(
 	new GuzzleHttp\Client(),
 	$config
 );
