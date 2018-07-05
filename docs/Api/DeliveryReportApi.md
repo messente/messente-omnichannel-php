@@ -18,9 +18,10 @@ Retrieves the delivery report for the Omnimessage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
+Messente\Omnichannel\Configuration::getDefaultConfiguration()
+	-> setUsername('YOUR_USERNAME');
+Messente\Omnichannel\Configuration::getDefaultConfiguration()
+	-> setPassword('YOUR_PASSWORD');
 
 
 $apiInstance = new Messente\Omnichannel\Api\DeliveryReportApi(

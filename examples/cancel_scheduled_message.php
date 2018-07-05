@@ -3,10 +3,9 @@
 require_once(__DIR__ . '../vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
-Messente\Omnichannel\Configuration::getDefaultConfiguration()
-	-> setUsername('YOUR_USERNAME');
-Messente\Omnichannel\Configuration::getDefaultConfiguration()
-	-> setPassword('YOUR_PASSWORD');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+	-> setUsername('<MESSENTE_API_USERNAME>')
+	-> setPassword('<MESSENTE_API_PASSWORD>');
 
 $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
 	new GuzzleHttp\Client(),
