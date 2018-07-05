@@ -13,7 +13,7 @@ $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
 $omnimessageId = "omnimessageId"; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
 
 try {
-    $result = $api_instance->retrieveDeliveryReport($omnimessageId);
+    $result = $apiInstance->retrieveDeliveryReport($omnimessageId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryReportApi->retrieveDeliveryReport: ', $e->getMessage(), PHP_EOL;
