@@ -33,7 +33,7 @@ namespace Messente\Omnichannel;
  * ResponseErrorCodeTest Class Doc Comment
  *
  * @category    Class
- * @description Matches the following ResponseErrorTitles This field is a constant. * 101 - Not found * 102 - Forbidden * 103 - Unauthorized * 104 - Invalid data * 105 - Internal Server Error * 106 - Missing data
+ * @description Matches the following ResponseErrorTitles This field is a constant. * 101 - Not found * 102 - Forbidden * 103 - Unauthorized * 104 - Invalid data * 105 - Internal Server Error * 106 - Missing data * 107 - Method not allowed
  * @package     Messente\Omnichannel
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

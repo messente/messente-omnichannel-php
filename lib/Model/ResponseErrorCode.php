@@ -34,7 +34,7 @@ use \Messente\Omnichannel\ObjectSerializer;
  * ResponseErrorCode Class Doc Comment
  *
  * @category Class
- * @description Matches the following ResponseErrorTitles This field is a constant. * 101 - Not found * 102 - Forbidden * 103 - Unauthorized * 104 - Invalid data * 105 - Internal Server Error * 106 - Missing data
+ * @description Matches the following ResponseErrorTitles This field is a constant. * 101 - Not found * 102 - Forbidden * 103 - Unauthorized * 104 - Invalid data * 105 - Internal Server Error * 106 - Missing data * 107 - Method not allowed
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,6 +50,7 @@ class ResponseErrorCode
     const _104 = '104';
     const _105 = '105';
     const _106 = '106';
+    const _107 = '107';
     
     /**
      * Gets allowable values of the enum
@@ -64,6 +65,7 @@ class ResponseErrorCode
             self::_104,
             self::_105,
             self::_106,
+            self::_107,
         ];
     }
 }

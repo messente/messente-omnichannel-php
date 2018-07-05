@@ -57,9 +57,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\Messente\Omnichannel\Model\Messages',
-        'viber' => 'Message',
-        'sms' => 'Message',
+        'messages' => 'object[]',
         'to' => 'string',
         'drlUrl' => 'string',
         'timeToSend' => '\DateTime'
@@ -72,8 +70,6 @@ class Omnimessage implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'messages' => null,
-        'viber' => null,
-        'sms' => null,
         'to' => null,
         'drlUrl' => 'url',
         'timeToSend' => 'date-time'
@@ -107,8 +103,6 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'messages' => 'messages',
-        'viber' => 'viber',
-        'sms' => 'sms',
         'to' => 'to',
         'drlUrl' => 'drl_url',
         'timeToSend' => 'time_to_send'
@@ -121,8 +115,6 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'messages' => 'setMessages',
-        'viber' => 'setViber',
-        'sms' => 'setSms',
         'to' => 'setTo',
         'drlUrl' => 'setDrlUrl',
         'timeToSend' => 'setTimeToSend'
@@ -135,8 +127,6 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'messages' => 'getMessages',
-        'viber' => 'getViber',
-        'sms' => 'getSms',
         'to' => 'getTo',
         'drlUrl' => 'getDrlUrl',
         'timeToSend' => 'getTimeToSend'
@@ -203,8 +193,6 @@ class Omnimessage implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
-        $this->container['viber'] = isset($data['viber']) ? $data['viber'] : null;
-        $this->container['sms'] = isset($data['sms']) ? $data['sms'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
         $this->container['drlUrl'] = isset($data['drlUrl']) ? $data['drlUrl'] : null;
         $this->container['timeToSend'] = isset($data['timeToSend']) ? $data['timeToSend'] : null;
@@ -243,7 +231,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return \Messente\Omnichannel\Model\Messages
+     * @return object[]
      */
     public function getMessages()
     {
@@ -253,61 +241,13 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \Messente\Omnichannel\Model\Messages $messages messages
+     * @param object[] $messages messages
      *
      * @return $this
      */
     public function setMessages($messages)
     {
         $this->container['messages'] = $messages;
-
-        return $this;
-    }
-
-    /**
-     * Gets viber
-     *
-     * @return Message|null
-     */
-    public function getViber()
-    {
-        return $this->container['viber'];
-    }
-
-    /**
-     * Sets viber
-     *
-     * @param Message|null $viber viber
-     *
-     * @return $this
-     */
-    public function setViber($viber)
-    {
-        $this->container['viber'] = $viber;
-
-        return $this;
-    }
-
-    /**
-     * Gets sms
-     *
-     * @return Message|null
-     */
-    public function getSms()
-    {
-        return $this->container['sms'];
-    }
-
-    /**
-     * Sets sms
-     *
-     * @param Message|null $sms sms
-     *
-     * @return $this
-     */
-    public function setSms($sms)
-    {
-        $this->container['sms'] = $sms;
 
         return $this;
     }

@@ -84,20 +84,6 @@ class OmnimessageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "viber"
-     */
-    public function testPropertyViber()
-    {
-    }
-
-    /**
-     * Test attribute "sms"
-     */
-    public function testPropertySms()
-    {
-    }
-
-    /**
      * Test attribute "to"
      */
     public function testPropertyTo()

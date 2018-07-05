@@ -20,24 +20,36 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
+	-> setUsername('<MESSENTE_API_USERNAME>')
+	-> setPassword('<MESSENTE_API_PASSWORD>');
 
 
 $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+		new GuzzleHttp\Client(),
+		$config
 );
-$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled Omnimessage to be cancelled
+
+$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(
+	["to" => "<recipient phonenumber>"]
+);
+
+$viber = new \Messente\Omnichannel\Model\Viber(
+	["text" => "Hello Viber!"]
+);
+
+$sms = new \Messente\Omnichannel\Model\SMS(
+	["text" => "Hello SMS!"]
+);
+
+$omnimessage->setMessages([$viber, $sms]);
+
 
 try {
-    $apiInstance->cancelScheduledMessage($omnimessageId);
+    $result = $apiInstance->sendOmnimessage($omnimessage);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OmnimessageApi->cancelScheduledMessage: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OmnimessageApi->sendOmnimessage: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters

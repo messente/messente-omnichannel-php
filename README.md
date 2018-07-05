@@ -16,7 +16,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/messente/messente-omnichannel-php"
+      "url": "https://github.com/messente/messente-omnichannel-php.git"
     }
   ],
   "require": {
@@ -107,7 +107,6 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Message](docs/Model/Message.md)
  - [MessageResult](docs/Model/MessageResult.md)
- - [Messages](docs/Model/Messages.md)
  - [OmniMessageCreateSuccessResponse](docs/Model/OmniMessageCreateSuccessResponse.md)
  - [Omnimessage](docs/Model/Omnimessage.md)
  - [ResponseErrorCode](docs/Model/ResponseErrorCode.md)
