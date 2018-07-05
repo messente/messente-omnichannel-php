@@ -13,7 +13,7 @@ $apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
 );
 
 $omnimessage = new \Messente\Omnichannel\Model\Omnimessage(
-	["to" => "<recipient phonenumber>"]
+	["to" => "<phone number in international format>"]
 );
 
 $viber = new \Messente\Omnichannel\Model\Viber(
