@@ -207,6 +207,18 @@ class ErrorItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['source'] === null) {
+            $invalidProperties[] = "'source' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -225,7 +237,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return \Messente\Omnichannel\Model\ResponseErrorTitle|null
+     * @return \Messente\Omnichannel\Model\ResponseErrorTitle
      */
     public function getTitle()
     {
@@ -235,7 +247,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param \Messente\Omnichannel\Model\ResponseErrorTitle|null $title title
+     * @param \Messente\Omnichannel\Model\ResponseErrorTitle $title title
      *
      * @return $this
      */
@@ -249,7 +261,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Gets detail
      *
-     * @return string|null
+     * @return string
      */
     public function getDetail()
     {
@@ -259,7 +271,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Sets detail
      *
-     * @param string|null $detail Free form more detailed description of the error.
+     * @param string $detail Free form more detailed description of the error.
      *
      * @return $this
      */
@@ -273,7 +285,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Gets code
      *
-     * @return \Messente\Omnichannel\Model\ResponseErrorCode|null
+     * @return \Messente\Omnichannel\Model\ResponseErrorCode
      */
     public function getCode()
     {
@@ -283,7 +295,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param \Messente\Omnichannel\Model\ResponseErrorCode|null $code code
+     * @param \Messente\Omnichannel\Model\ResponseErrorCode $code code
      *
      * @return $this
      */
@@ -297,7 +309,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Gets source
      *
-     * @return string|null
+     * @return string
      */
     public function getSource()
     {
@@ -307,7 +319,7 @@ class ErrorItem implements ModelInterface, ArrayAccess
     /**
      * Sets source
      *
-     * @param string|null $source Describes which field is causing the issue in the payload, null for non 400 status code responses
+     * @param string $source Describes which field is causing the issue in the payload, null for non 400 status code responses
      *
      * @return $this
      */

@@ -201,6 +201,15 @@ class MessageResult implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['messageId'] === null) {
+            $invalidProperties[] = "'messageId' can't be null";
+        }
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -219,7 +228,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Gets messageId
      *
-     * @return string|null
+     * @return string
      */
     public function getMessageId()
     {
@@ -229,7 +238,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Sets messageId
      *
-     * @param string|null $messageId Unique identifier for the message
+     * @param string $messageId Unique identifier for the message
      *
      * @return $this
      */
@@ -243,7 +252,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Gets channel
      *
-     * @return \Messente\Omnichannel\Model\Channel|null
+     * @return \Messente\Omnichannel\Model\Channel
      */
     public function getChannel()
     {
@@ -253,7 +262,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Sets channel
      *
-     * @param \Messente\Omnichannel\Model\Channel|null $channel channel
+     * @param \Messente\Omnichannel\Model\Channel $channel channel
      *
      * @return $this
      */
@@ -267,7 +276,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Gets sender
      *
-     * @return string|null
+     * @return string
      */
     public function getSender()
     {
@@ -277,7 +286,7 @@ class MessageResult implements ModelInterface, ArrayAccess
     /**
      * Sets sender
      *
-     * @param string|null $sender Sender that was used for the message
+     * @param string $sender Sender that was used for the message
      *
      * @return $this
      */

@@ -61,7 +61,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         'channel' => '\Messente\Omnichannel\Model\Channel',
         'messageId' => 'string',
         'error' => 'string',
-        'err' => 'int'
+        'err' => 'int',
+        'timestamp' => '\DateTime'
     ];
 
     /**
@@ -74,7 +75,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         'channel' => null,
         'messageId' => 'uuid',
         'error' => null,
-        'err' => 'int32'
+        'err' => 'int32',
+        'timestamp' => 'date-time'
     ];
 
     /**
@@ -108,7 +110,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         'channel' => 'channel',
         'messageId' => 'message_id',
         'error' => 'error',
-        'err' => 'err'
+        'err' => 'err',
+        'timestamp' => 'timestamp'
     ];
 
     /**
@@ -121,7 +124,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         'channel' => 'setChannel',
         'messageId' => 'setMessageId',
         'error' => 'setError',
-        'err' => 'setErr'
+        'err' => 'setErr',
+        'timestamp' => 'setTimestamp'
     ];
 
     /**
@@ -134,7 +138,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         'channel' => 'getChannel',
         'messageId' => 'getMessageId',
         'error' => 'getError',
-        'err' => 'getErr'
+        'err' => 'getErr',
+        'timestamp' => 'getTimestamp'
     ];
 
     /**
@@ -235,6 +240,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess
         $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['err'] = isset($data['err']) ? $data['err'] : null;
+        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
     }
 
     /**
@@ -394,6 +400,30 @@ class DeliveryResult implements ModelInterface, ArrayAccess
             );
         }
         $this->container['err'] = $err;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp When this status was received by Omnichannel API
+     *
+     * @return $this
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }

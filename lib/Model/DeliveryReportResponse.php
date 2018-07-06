@@ -57,7 +57,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\Messente\Omnichannel\Model\DeliveryResult[]',
+        'statuses' => '\Messente\Omnichannel\Model\DeliveryResult[]',
         'to' => 'string',
         'omnimessageId' => 'string'
     ];
@@ -68,7 +68,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'messages' => null,
+        'statuses' => null,
         'to' => null,
         'omnimessageId' => 'uuid'
     ];
@@ -100,7 +100,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages',
+        'statuses' => 'statuses',
         'to' => 'to',
         'omnimessageId' => 'omnimessage_id'
     ];
@@ -111,7 +111,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages',
+        'statuses' => 'setStatuses',
         'to' => 'setTo',
         'omnimessageId' => 'setOmnimessageId'
     ];
@@ -122,7 +122,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages',
+        'statuses' => 'getStatuses',
         'to' => 'getTo',
         'omnimessageId' => 'getOmnimessageId'
     ];
@@ -187,7 +187,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
+        $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
         $this->container['omnimessageId'] = isset($data['omnimessageId']) ? $data['omnimessageId'] : null;
     }
@@ -201,6 +201,15 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['statuses'] === null) {
+            $invalidProperties[] = "'statuses' can't be null";
+        }
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        if ($this->container['omnimessageId'] === null) {
+            $invalidProperties[] = "'omnimessageId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -217,25 +226,25 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets messages
+     * Gets statuses
      *
-     * @return \Messente\Omnichannel\Model\DeliveryResult[]|null
+     * @return \Messente\Omnichannel\Model\DeliveryResult[]
      */
-    public function getMessages()
+    public function getStatuses()
     {
-        return $this->container['messages'];
+        return $this->container['statuses'];
     }
 
     /**
-     * Sets messages
+     * Sets statuses
      *
-     * @param \Messente\Omnichannel\Model\DeliveryResult[]|null $messages List of messages that compose the Omnimessage
+     * @param \Messente\Omnichannel\Model\DeliveryResult[] $statuses Contains the delivery reports for each channnel, ordered by send order
      *
      * @return $this
      */
-    public function setMessages($messages)
+    public function setStatuses($statuses)
     {
-        $this->container['messages'] = $messages;
+        $this->container['statuses'] = $statuses;
 
         return $this;
     }
@@ -243,7 +252,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Gets to
      *
-     * @return string|null
+     * @return string
      */
     public function getTo()
     {
@@ -253,7 +262,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets to
      *
-     * @param string|null $to Recipient phone number in international number format
+     * @param string $to Recipient phone number in international number format
      *
      * @return $this
      */
@@ -267,7 +276,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Gets omnimessageId
      *
-     * @return string|null
+     * @return string
      */
     public function getOmnimessageId()
     {
@@ -277,7 +286,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets omnimessageId
      *
-     * @param string|null $omnimessageId Unique identifier for the Omnimessage
+     * @param string $omnimessageId Unique identifier for the Omnimessage
      *
      * @return $this
      */

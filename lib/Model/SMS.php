@@ -195,6 +195,9 @@ class SMS extends Message
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -213,7 +216,7 @@ class SMS extends Message
     /**
      * Gets text
      *
-     * @return string|null
+     * @return string
      */
     public function getText()
     {
@@ -223,7 +226,7 @@ class SMS extends Message
     /**
      * Sets text
      *
-     * @param string|null $text Text content of the SMS
+     * @param string $text Text content of the SMS
      *
      * @return $this
      */

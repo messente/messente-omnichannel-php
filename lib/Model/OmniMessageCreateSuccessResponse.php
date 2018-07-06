@@ -201,6 +201,15 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['messages'] === null) {
+            $invalidProperties[] = "'messages' can't be null";
+        }
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        if ($this->container['omnimessageId'] === null) {
+            $invalidProperties[] = "'omnimessageId' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -219,7 +228,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return \Messente\Omnichannel\Model\MessageResult[]|null
+     * @return \Messente\Omnichannel\Model\MessageResult[]
      */
     public function getMessages()
     {
@@ -229,7 +238,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \Messente\Omnichannel\Model\MessageResult[]|null $messages List of messages that compose the Omnimessage
+     * @param \Messente\Omnichannel\Model\MessageResult[] $messages List of messages that compose the Omnimessage
      *
      * @return $this
      */
@@ -243,7 +252,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Gets to
      *
-     * @return string|null
+     * @return string
      */
     public function getTo()
     {
@@ -253,7 +262,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets to
      *
-     * @param string|null $to Recipient phone number in international number format
+     * @param string $to Recipient phone number in international number format
      *
      * @return $this
      */
@@ -267,7 +276,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Gets omnimessageId
      *
-     * @return string|null
+     * @return string
      */
     public function getOmnimessageId()
     {
@@ -277,7 +286,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets omnimessageId
      *
-     * @param string|null $omnimessageId Unique identifier for the Omnimessage
+     * @param string $omnimessageId Unique identifier for the Omnimessage
      *
      * @return $this
      */

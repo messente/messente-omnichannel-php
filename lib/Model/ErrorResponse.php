@@ -189,6 +189,9 @@ class ErrorResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,7 +210,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Messente\Omnichannel\Model\ErrorItem[]|null
+     * @return \Messente\Omnichannel\Model\ErrorItem[]
      */
     public function getErrors()
     {
@@ -217,7 +220,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Messente\Omnichannel\Model\ErrorItem[]|null $errors errors
+     * @param \Messente\Omnichannel\Model\ErrorItem[] $errors errors
      *
      * @return $this
      */
