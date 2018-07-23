@@ -19,8 +19,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
-	-> setUsername('<MESSENTE_API_USERNAME>')
-	-> setPassword('<MESSENTE_API_PASSWORD>');
+	->setUsername('<MESSENTE_API_USERNAME>')
+	->setPassword('<MESSENTE_API_PASSWORD>');
 
 
 $apiInstance = new Messente\Omnichannel\Api\DeliveryReportApi(
