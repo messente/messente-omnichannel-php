@@ -17,13 +17,16 @@ Retrieves the delivery report for the Omnimessage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+use \Messente\Omnichannel\Configuration;
+use \Messente\Omnichannel\Api\DeliveryReportApi;
+
 // Configure HTTP basic authorization: basicAuth
-$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+$config = Configuration::getDefaultConfiguration()
 	->setUsername('<MESSENTE_API_USERNAME>')
 	->setPassword('<MESSENTE_API_PASSWORD>');
 
 
-$apiInstance = new Messente\Omnichannel\Api\DeliveryReportApi(
+$apiInstance = new DeliveryReportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

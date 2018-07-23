@@ -1,26 +1,32 @@
 <?php
 require_once(__DIR__ . '/../vendor/autoload.php');
 
+use \Messente\Omnichannel\Api\OmnimessageApi;
+use \Messente\Omnichannel\Configuration;
+use \Messente\Omnichannel\Model\Omnimessage;
+use \Messente\Omnichannel\Model\Viber;
+use \Messente\Omnichannel\Model\SMS;
+
+
 // Configure HTTP basic authorization: basicAuth
-$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+$config = Configuration::getDefaultConfiguration()
     ->setUsername('<MESSENTE_API_USERNAME>')
     ->setPassword('<MESSENTE_API_PASSWORD>');
 
-
-$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+$apiInstance = new OmnimessageApi(
     new GuzzleHttp\Client(),
     $config
 );
 
-$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(
+$omnimessage = new Omnimessage(
     ["to" => "<phone number in international format>"]
 );
 
-$viber = new \Messente\Omnichannel\Model\Viber(
+$viber = new Viber(
     ["text" => "Hello Viber!"]
 );
 
-$sms = new \Messente\Omnichannel\Model\SMS(
+$sms = new SMS(
     ["text" => "Hello SMS!"]
 );
 
