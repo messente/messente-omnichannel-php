@@ -1,0 +1,9 @@
+{
+	"artifactVersion": "0.0.1",
+	"variableNamingConvention": "camelCase",
+	"gitRepoId": "messente-omnichannel-php",
+	"gitUserId": "messente",
+	"packagePath": ".",
+	"invokerPackage": "Messente\\Omnichannel"
+
+}
