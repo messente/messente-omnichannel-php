@@ -114,6 +114,11 @@ Class | Method | HTTP request | Description
  - [SMS](docs/Model/SMS.md)
  - [Status](docs/Model/Status.md)
  - [Viber](docs/Model/Viber.md)
+ - [WhatsApp](docs/Model/WhatsApp.md)
+ - [WhatsAppAudio](docs/Model/WhatsAppAudio.md)
+ - [WhatsAppDocument](docs/Model/WhatsAppDocument.md)
+ - [WhatsAppImage](docs/Model/WhatsAppImage.md)
+ - [WhatsAppText](docs/Model/WhatsAppText.md)
 
 
 ## Documentation For Authorization

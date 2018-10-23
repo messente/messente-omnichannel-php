@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageResult
+ * WhatsApp
  *
  * PHP version 5
  *
@@ -28,19 +28,17 @@
  */
 
 namespace Messente\Omnichannel\Model;
-
-use \ArrayAccess;
 use \Messente\Omnichannel\ObjectSerializer;
 
 /**
- * MessageResult Class Doc Comment
+ * WhatsApp Class Doc Comment
  *
  * @category Class
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MessageResult implements ModelInterface, ArrayAccess
+class WhatsApp extends Message 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +47,7 @@ class MessageResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MessageResult';
+    protected static $openAPIModelName = 'WhatsApp';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +55,10 @@ class MessageResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messageId' => 'string',
-        'channel' => '\Messente\Omnichannel\Model\Channel',
-        'sender' => 'string'
+        'text' => '\Messente\Omnichannel\Model\WhatsAppText',
+        'image' => '\Messente\Omnichannel\Model\WhatsAppImage',
+        'document' => '\Messente\Omnichannel\Model\WhatsAppDocument',
+        'audio' => '\Messente\Omnichannel\Model\WhatsAppAudio'
     ];
 
     /**
@@ -68,9 +67,10 @@ class MessageResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'messageId' => 'uuid',
-        'channel' => null,
-        'sender' => null
+        'text' => null,
+        'image' => null,
+        'document' => null,
+        'audio' => null
     ];
 
     /**
@@ -80,7 +80,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -90,7 +90,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -100,9 +100,10 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'messageId' => 'message_id',
-        'channel' => 'channel',
-        'sender' => 'sender'
+        'text' => 'text',
+        'image' => 'image',
+        'document' => 'document',
+        'audio' => 'audio'
     ];
 
     /**
@@ -111,9 +112,10 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'messageId' => 'setMessageId',
-        'channel' => 'setChannel',
-        'sender' => 'setSender'
+        'text' => 'setText',
+        'image' => 'setImage',
+        'document' => 'setDocument',
+        'audio' => 'setAudio'
     ];
 
     /**
@@ -122,9 +124,10 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'messageId' => 'getMessageId',
-        'channel' => 'getChannel',
-        'sender' => 'getSender'
+        'text' => 'getText',
+        'image' => 'getImage',
+        'document' => 'getDocument',
+        'audio' => 'getAudio'
     ];
 
     /**
@@ -135,7 +138,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -145,7 +148,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -155,7 +158,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -172,12 +175,6 @@ class MessageResult implements ModelInterface, ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -187,9 +184,12 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
+        parent::__construct($data);
+
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['document'] = isset($data['document']) ? $data['document'] : null;
+        $this->container['audio'] = isset($data['audio']) ? $data['audio'] : null;
     }
 
     /**
@@ -199,17 +199,8 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['messageId'] === null) {
-            $invalidProperties[] = "'messageId' can't be null";
-        }
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -226,73 +217,97 @@ class MessageResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets messageId
+     * Gets text
      *
-     * @return string
+     * @return \Messente\Omnichannel\Model\WhatsAppText|null
      */
-    public function getMessageId()
+    public function getText()
     {
-        return $this->container['messageId'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets messageId
+     * Sets text
      *
-     * @param string $messageId Unique identifier for the message
+     * @param \Messente\Omnichannel\Model\WhatsAppText|null $text text
      *
      * @return $this
      */
-    public function setMessageId($messageId)
+    public function setText($text)
     {
-        $this->container['messageId'] = $messageId;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets image
      *
-     * @return \Messente\Omnichannel\Model\Channel
+     * @return \Messente\Omnichannel\Model\WhatsAppImage|null
      */
-    public function getChannel()
+    public function getImage()
     {
-        return $this->container['channel'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets channel
+     * Sets image
      *
-     * @param \Messente\Omnichannel\Model\Channel $channel channel
+     * @param \Messente\Omnichannel\Model\WhatsAppImage|null $image image
      *
      * @return $this
      */
-    public function setChannel($channel)
+    public function setImage($image)
     {
-        $this->container['channel'] = $channel;
+        $this->container['image'] = $image;
 
         return $this;
     }
 
     /**
-     * Gets sender
+     * Gets document
      *
-     * @return string
+     * @return \Messente\Omnichannel\Model\WhatsAppDocument|null
      */
-    public function getSender()
+    public function getDocument()
     {
-        return $this->container['sender'];
+        return $this->container['document'];
     }
 
     /**
-     * Sets sender
+     * Sets document
      *
-     * @param string $sender Sender that was used for the message
+     * @param \Messente\Omnichannel\Model\WhatsAppDocument|null $document document
      *
      * @return $this
      */
-    public function setSender($sender)
+    public function setDocument($document)
     {
-        $this->container['sender'] = $sender;
+        $this->container['document'] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Gets audio
+     *
+     * @return \Messente\Omnichannel\Model\WhatsAppAudio|null
+     */
+    public function getAudio()
+    {
+        return $this->container['audio'];
+    }
+
+    /**
+     * Sets audio
+     *
+     * @param \Messente\Omnichannel\Model\WhatsAppAudio|null $audio audio
+     *
+     * @return $this
+     */
+    public function setAudio($audio)
+    {
+        $this->container['audio'] = $audio;
 
         return $this;
     }

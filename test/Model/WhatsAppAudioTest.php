@@ -1,6 +1,6 @@
 <?php
 /**
- * SMSTest
+ * WhatsAppAudioTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace Messente\Omnichannel;
 
 /**
- * SMSTest Class Doc Comment
+ * WhatsAppAudioTest Class Doc Comment
  *
  * @category    Class
- * @description SMS
+ * @description WhatsAppAudio
  * @package     Messente\Omnichannel
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SMSTest extends \PHPUnit_Framework_TestCase
+class WhatsAppAudioTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,16 @@ class SMSTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "SMS"
+     * Test "WhatsAppAudio"
      */
-    public function testSMS()
+    public function testWhatsAppAudio()
     {
     }
 
     /**
-     * Test attribute "text"
+     * Test attribute "content"
      */
-    public function testPropertyText()
-    {
-    }
-
-    /**
-     * Test attribute "autoconvert"
-     */
-    public function testPropertyAutoconvert()
-    {
-    }
-
-    /**
-     * Test attribute "udh"
-     */
-    public function testPropertyUdh()
+    public function testPropertyContent()
     {
     }
 }
