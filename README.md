@@ -71,22 +71,25 @@ $apiInstance = new OmnimessageApi(
     $config
 );
 
-$omnimessage = new Omnimessage(
-    ["to" => "<phone number in international format>"]
-);
+$omnimessage = new Omnimessage([
+	"to" => "<phone number in e.164 format>"
+]);
 
 $viber = new Viber(
-    ["text" => "Hello Viber!"]
+    ["text" => "Hello Viber!", "sender" => "MyViberSender"]
 );
 
 $sms = new SMS(
-    ["text" => "Hello SMS!"]
+    ["text" => "Hello SMS!", "sender" => "MySmsSender"]
 );
 
+
+$whatsAppText = new WhatsAppText(["body" => "Hello WhatsApp!"]);
 
 $whatsapp = new WhatsApp(
-	['text' => new WhatsAppText(["body" => "Hello WhatsApp!", "previewUrl" => false])]
+	['text' => $whatsAppText, "sender" => "MyWhatsAppSender"]
 );
+
 $omnimessage->setMessages([$whatsapp, $viber, $sms]);
 
 

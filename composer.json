@@ -9,7 +9,8 @@
         "messaging",
         "sms",
         "viber",
-        "omnichannel"
+        "omnichannel",
+        "whatsapp"
     ],
     "homepage": "https://messente.com",
     "license": "Apache-2.0",

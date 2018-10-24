@@ -46,6 +46,7 @@ class Channel
      */
     const SMS = 'sms';
     const VIBER = 'viber';
+    const WHATSAPP = 'whatsapp';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +57,7 @@ class Channel
         return [
             self::SMS,
             self::VIBER,
+            self::WHATSAPP,
         ];
     }
 }
