@@ -12,31 +12,33 @@ use \Messente\Omnichannel\Model\WhatsAppText;
 
 // Configure HTTP basic authorization: basicAuth
 $config = Configuration::getDefaultConfiguration()
-    ->setUsername('<MESSENTE_API_USERNAME>')
-    ->setPassword('<MESSENTE_API_PASSWORD>');
+	->setHost("https://api.dev.messente.com/v1")
+    ->setUsername('d53c174ca7f1977c668d3b14c1b4bb0b')
+    ->setPassword('6ae7e984b9a251a561b3dc5d6611e15c');
 
 $apiInstance = new OmnimessageApi(
     new GuzzleHttp\Client(),
     $config
 );
 
-$omnimessage = new Omnimessage(
-    ["to" => "<phone number in international format>"]
-);
+$omnimessage = new Omnimessage([
+	"to" => "<phone number in e.164 format>"
+]);
 
 $viber = new Viber(
-    ["text" => "Hello Viber!"]
+	["text" => "Hello Viber!", "sender" => "MyViberSender"]
 );
 
 $sms = new SMS(
-    ["text" => "Hello SMS!"]
+	["text" => "Hello SMS!", "sender" => "MySmsSender"]
 );
 
+
+$whatsAppText = new WhatsAppText(["body" => "Hello WhatsApp!"]);
 
 $whatsapp = new WhatsApp(
-	['text' => new WhatsAppText(["body" => "Hello WhatsApp!", "previewUrl" => false])]
+	['text' => $whatsAppText, "sender" => "MyWhatsAppSender"]
 );
-$omnimessage->setMessages([$whatsapp, $viber, $sms]);
 
 
 try {
