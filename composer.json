@@ -1,21 +1,23 @@
 {
     "name": "messente/messente-omnichannel-php",
-    "version": "1.0.1",
-    "description": "",
+    "version": "1.0.0",
+    "description": "PHP API client for Messente Omnichannel API",
     "keywords": [
-        "openapitools",
-        "openapi-generator",
         "php",
         "sdk",
-        "rest",
-        "api"
+        "api",
+        "messaging",
+        "sms",
+        "viber",
+        "omnichannel",
+        "whatsapp"
     ],
-    "homepage": "http://openapi-generator.tech",
-    "license": "proprietary",
+    "homepage": "https://messente.com",
+    "license": "Apache-2.0",
     "authors": [
         {
-            "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
+            "name": "Messente",
+            "homepage": "https://github.com/messente/messente-omnichannel-php"
         }
     ],
     "require": {
@@ -28,7 +30,7 @@
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "~2.6",
-        "friendsofphp/php-cs-fixer": "~2.12"
+        "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
         "psr-4": { "Messente\\Omnichannel\\" : "lib/" }
