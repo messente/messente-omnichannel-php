@@ -1,6 +1,6 @@
 <?php
 /**
- * MessageResult
+ * WhatsAppAudio
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Messente\Omnichannel\ObjectSerializer;
 
 /**
- * MessageResult Class Doc Comment
+ * WhatsAppAudio Class Doc Comment
  *
  * @category Class
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MessageResult implements ModelInterface, ArrayAccess
+class WhatsAppAudio implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MessageResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MessageResult';
+    protected static $openAPIModelName = 'WhatsAppAudio';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class MessageResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messageId' => 'string',
-        'channel' => '\Messente\Omnichannel\Model\Channel',
-        'sender' => 'string'
+        'content' => 'string'
     ];
 
     /**
@@ -68,9 +66,7 @@ class MessageResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'messageId' => 'uuid',
-        'channel' => null,
-        'sender' => null
+        'content' => null
     ];
 
     /**
@@ -100,9 +96,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'messageId' => 'message_id',
-        'channel' => 'channel',
-        'sender' => 'sender'
+        'content' => 'content'
     ];
 
     /**
@@ -111,9 +105,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'messageId' => 'setMessageId',
-        'channel' => 'setChannel',
-        'sender' => 'setSender'
+        'content' => 'setContent'
     ];
 
     /**
@@ -122,9 +114,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'messageId' => 'getMessageId',
-        'channel' => 'getChannel',
-        'sender' => 'getSender'
+        'content' => 'getContent'
     ];
 
     /**
@@ -187,9 +177,7 @@ class MessageResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['sender'] = isset($data['sender']) ? $data['sender'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
     }
 
     /**
@@ -201,14 +189,8 @@ class MessageResult implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['messageId'] === null) {
-            $invalidProperties[] = "'messageId' can't be null";
-        }
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,73 +208,25 @@ class MessageResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets messageId
+     * Gets content
      *
      * @return string
      */
-    public function getMessageId()
+    public function getContent()
     {
-        return $this->container['messageId'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets messageId
+     * Sets content
      *
-     * @param string $messageId Unique identifier for the message
+     * @param string $content Base64-encoded audio
      *
      * @return $this
      */
-    public function setMessageId($messageId)
+    public function setContent($content)
     {
-        $this->container['messageId'] = $messageId;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel
-     *
-     * @return \Messente\Omnichannel\Model\Channel
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param \Messente\Omnichannel\Model\Channel $channel channel
-     *
-     * @return $this
-     */
-    public function setChannel($channel)
-    {
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string $sender Sender that was used for the message
-     *
-     * @return $this
-     */
-    public function setSender($sender)
-    {
-        $this->container['sender'] = $sender;
+        $this->container['content'] = $content;
 
         return $this;
     }

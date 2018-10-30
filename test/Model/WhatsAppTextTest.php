@@ -1,6 +1,6 @@
 <?php
 /**
- * SMSTest
+ * WhatsAppTextTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace Messente\Omnichannel;
 
 /**
- * SMSTest Class Doc Comment
+ * WhatsAppTextTest Class Doc Comment
  *
  * @category    Class
- * @description SMS
+ * @description WhatsAppText
  * @package     Messente\Omnichannel
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SMSTest extends \PHPUnit_Framework_TestCase
+class WhatsAppTextTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,23 @@ class SMSTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "SMS"
+     * Test "WhatsAppText"
      */
-    public function testSMS()
+    public function testWhatsAppText()
     {
     }
 
     /**
-     * Test attribute "text"
+     * Test attribute "previewUrl"
      */
-    public function testPropertyText()
+    public function testPropertyPreviewUrl()
     {
     }
 
     /**
-     * Test attribute "autoconvert"
+     * Test attribute "body"
      */
-    public function testPropertyAutoconvert()
-    {
-    }
-
-    /**
-     * Test attribute "udh"
-     */
-    public function testPropertyUdh()
+    public function testPropertyBody()
     {
     }
 }
