@@ -1,5 +1,5 @@
 {
-	"artifactVersion": "0.0.1",
+	"artifactVersion": "0.1.0",
 	"variableNamingConvention": "camelCase",
 	"gitRepoId": "messente-omnichannel-php",
 	"gitUserId": "messente",
