@@ -18,20 +18,18 @@ Cancels a scheduled Omnimessage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use \Messente\Omnichannel\Configuration;
-use \Messente\Omnichannel\Api\OmnimessageApi;
-
 // Configure HTTP basic authorization: basicAuth
-$config = Configuration::getDefaultConfiguration()
-    ->setUsername('<MESSENTE_API_USERNAME>')
-    ->setPassword('<MESSENTE_API_PASSWORD>');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-$apiInstance = new OmnimessageApi(
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-
-$omnimessageId = "omnimessageId"; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled Omnimessage to be cancelled
 
 try {
     $apiInstance->cancelScheduledMessage($omnimessageId);
@@ -72,37 +70,18 @@ Sends an Omnimessage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-use \Messente\Omnichannel\Api\OmnimessageApi;
-use \Messente\Omnichannel\Configuration;
-use \Messente\Omnichannel\Model\Omnimessage;
-use \Messente\Omnichannel\Model\Viber;
-use \Messente\Omnichannel\Model\SMS;
-
 // Configure HTTP basic authorization: basicAuth
-$config = Configuration::getDefaultConfiguration()
-    ->setUsername('<MESSENTE_API_USERNAME>')
-    ->setPassword('<MESSENTE_API_PASSWORD>');
+$config = Messente\Omnichannel\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
 
-
-$apiInstance = new OmnimessageApi(
+$apiInstance = new Messente\Omnichannel\Api\OmnimessageApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-
-$omnimessage = new Omnimessage(
-    ["to" => "<phone number in international format>"]
-);
-
-$viber = new Viber(
-    ["text" => "Hello Viber!"]
-);
-
-$sms = new SMS(
-    ["text" => "Hello SMS!"]
-);
-
-$omnimessage->setMessages([$viber, $sms]);
-
+$omnimessage = new \Messente\Omnichannel\Model\Omnimessage(); // \Messente\Omnichannel\Model\Omnimessage | Omnimessage to be sent
 
 try {
     $result = $apiInstance->sendOmnimessage($omnimessage);
@@ -110,6 +89,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->sendOmnimessage: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
