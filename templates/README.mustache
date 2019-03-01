@@ -1,4 +1,4 @@
-# messente-omnichannel-php
+# {{packageName}}
 
 This is the PHP library for Messente Omnichannel API
 
@@ -16,11 +16,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/messente/messente-omnichannel-php.git"
+      "url": "https://github.com/{{#composerVendorName}}{{.}}{{/composerVendorName}}{{^composerVendorName}}{{gitUserId}}{{/composerVendorName}}/{{#composerProjectName}}{{.}}{{/composerProjectName}}{{^composerProjectName}}{{gitRepoId}}{{/composerProjectName}}.git"
     }
   ],
   "require": {
-    "messente/messente-omnichannel-php": "*@master"
+    "{{#composerVendorName}}{{.}}{{/composerVendorName}}{{^composerVendorName}}{{gitUserId}}{{/composerVendorName}}/{{#composerProjectName}}{{.}}{{/composerProjectName}}{{^composerProjectName}}{{gitRepoId}}{{/composerProjectName}}": "*@master"
   }
 }
 ```
@@ -103,48 +103,42 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to *{{basePath}}*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DeliveryReportApi* | [**retrieveDeliveryReport**](docs/Api/DeliveryReportApi.md#retrievedeliveryreport) | **GET** /omnimessage/{omnimessage_id}/status | Retrieves the delivery report for the Omnimessage
-*OmnimessageApi* | [**cancelScheduledMessage**](docs/Api/OmnimessageApi.md#cancelscheduledmessage) | **DELETE** /omnimessage/{omnimessage_id} | Cancels a scheduled Omnimessage
-*OmnimessageApi* | [**sendOmnimessage**](docs/Api/OmnimessageApi.md#sendomnimessage) | **POST** /omnimessage | Sends an Omnimessage
-
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
 
 ## Documentation For Models
 
- - [Channel](docs/Model/Channel.md)
- - [DeliveryReportResponse](docs/Model/DeliveryReportResponse.md)
- - [DeliveryResult](docs/Model/DeliveryResult.md)
- - [Err](docs/Model/Err.md)
- - [ErrorItem](docs/Model/ErrorItem.md)
- - [ErrorResponse](docs/Model/ErrorResponse.md)
- - [MessageResult](docs/Model/MessageResult.md)
- - [OmniMessageCreateSuccessResponse](docs/Model/OmniMessageCreateSuccessResponse.md)
- - [Omnimessage](docs/Model/Omnimessage.md)
- - [ResponseErrorCode](docs/Model/ResponseErrorCode.md)
- - [ResponseErrorTitle](docs/Model/ResponseErrorTitle.md)
- - [SMS](docs/Model/SMS.md)
- - [Status](docs/Model/Status.md)
- - [Viber](docs/Model/Viber.md)
- - [WhatsApp](docs/Model/WhatsApp.md)
- - [WhatsAppAudio](docs/Model/WhatsAppAudio.md)
- - [WhatsAppDocument](docs/Model/WhatsAppDocument.md)
- - [WhatsAppImage](docs/Model/WhatsAppImage.md)
- - [WhatsAppText](docs/Model/WhatsAppText.md)
-
+{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}/{{{classname}}}.md)
+{{/model}}{{/models}}
 
 ## Documentation For Authorization
 
+{{^authMethods}} All endpoints do not require authorization.
+{{/authMethods}}{{#authMethods}}{{#last}} Authentication schemes defined for the API:{{/last}}{{/authMethods}}
+{{#authMethods}}## {{{name}}}
 
-## basicAuth
+{{#isApiKey}}- **Type**: API key
+- **API key parameter name**: {{{keyParamName}}}
+- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
+{{/isApiKey}}
+{{#isBasic}}- **Type**: HTTP basic authentication
+{{/isBasic}}
+{{#isOAuth}}- **Type**: OAuth
+- **Flow**: {{{flow}}}
+- **Authorization URL**: {{{authorizationUrl}}}
+- **Scopes**: {{^scopes}}N/A{{/scopes}}
+{{#scopes}} - **{{{scope}}}**: {{{description}}}
+{{/scopes}}
+{{/isOAuth}}
 
-- **Type**: HTTP basic authentication
-
+{{/authMethods}}
 
 ## Author
 
-messente@messente.com
-
+{{#apiInfo}}{{#apis}}{{^hasMore}}{{infoEmail}}
+{{/hasMore}}{{/apis}}{{/apiInfo}}
 

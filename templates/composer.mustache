@@ -1,7 +1,9 @@
 {
-    "name": "messente/messente-omnichannel-php",
-    "version": "1.0.2",
-    "description": "Messente's API which allows sending messages via various channels with fallback options.",
+    "name": "{{#composerVendorName}}{{.}}{{/composerVendorName}}{{^composerVendorName}}{{gitUserId}}{{/composerVendorName}}/{{#composerProjectName}}{{.}}{{/composerProjectName}}{{^composerProjectName}}{{gitRepoId}}{{/composerProjectName}}",
+    {{#artifactVersion}}
+    "version": "{{artifactVersion}}",
+    {{/artifactVersion}}
+    "description": "{{{appDescription}}}",
     "keywords": [
         "php",
         "sdk",
@@ -33,9 +35,9 @@
         "friendsofphp/php-cs-fixer": "~2.12"
     },
     "autoload": {
-        "psr-4": { "Messente\\Omnichannel\\" : "lib/" }
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "{{srcBasePath}}/" }
     },
     "autoload-dev": {
-        "psr-4": { "Messente\\Omnichannel\\" : "test/" }
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "{{testBasePath}}/" }
     }
 }
