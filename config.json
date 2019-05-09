@@ -5,5 +5,5 @@
 	"gitUserId": "messente",
 	"packagePath": ".",
 	"invokerPackage": "Messente\\Omnichannel",
-    "packageName": "messente-omnichannel-php"
+        "packageName": "messente-omnichannel-php"
 }

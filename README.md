@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
  - [ResponseErrorTitle](docs/Model/ResponseErrorTitle.md)
  - [SMS](docs/Model/SMS.md)
  - [Status](docs/Model/Status.md)
+ - [TextStore](docs/Model/TextStore.md)
  - [Viber](docs/Model/Viber.md)
  - [WhatsApp](docs/Model/WhatsApp.md)
  - [WhatsAppAudio](docs/Model/WhatsAppAudio.md)
