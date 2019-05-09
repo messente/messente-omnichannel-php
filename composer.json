@@ -1,6 +1,6 @@
 {
     "name": "messente/messente-omnichannel-php",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Messente's API which allows sending messages via various channels with fallback options.",
     "keywords": [
         "php",

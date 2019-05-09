@@ -1,6 +1,6 @@
 <?php
 /**
- * Status
+ * TextStore
  *
  * PHP version 5
  *
@@ -31,30 +31,22 @@ namespace Messente\Omnichannel\Model;
 use \Messente\Omnichannel\ObjectSerializer;
 
 /**
- * Status Class Doc Comment
+ * TextStore Class Doc Comment
  *
  * @category Class
- * @description The human-readable equivalent for this field is contained in \&quot;error\&quot;. This value is *null* if the message is still being processed.
+ * @description Whether to store message content as is (plaintext), as a hashed value (sha256) or not at all (nostore).
  * @package  Messente\Omnichannel
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Status
+class TextStore
 {
     /**
      * Possible values of this enum
      */
-    const ACK = 'ACK';
-    const DELIVRD = 'DELIVRD';
-    const UNDELIV = 'UNDELIV';
-    const FAILED = 'FAILED';
-    const UNKNOWN = 'UNKNOWN';
-    const ACCEPTD = 'ACCEPTD';
-    const REJECTD = 'REJECTD';
-    const DELETED = 'DELETED';
-    const EXPIRED = 'EXPIRED';
-    const NACK = 'NACK';
-    const SEEN = 'SEEN';
+    const NOSTORE = 'nostore';
+    const SHA256 = 'sha256';
+    const PLAINTEXT = 'plaintext';
     
     /**
      * Gets allowable values of the enum
@@ -63,17 +55,9 @@ class Status
     public static function getAllowableEnumValues()
     {
         return [
-            self::ACK,
-            self::DELIVRD,
-            self::UNDELIV,
-            self::FAILED,
-            self::UNKNOWN,
-            self::ACCEPTD,
-            self::REJECTD,
-            self::DELETED,
-            self::EXPIRED,
-            self::NACK,
-            self::SEEN,
+            self::NOSTORE,
+            self::SHA256,
+            self::PLAINTEXT,
         ];
     }
 }

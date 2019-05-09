@@ -1,6 +1,7 @@
-# DeliveryResult
+# # DeliveryResult
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**\Messente\Omnichannel\Model\Status**](Status.md) |  | [optional] 
@@ -10,6 +11,6 @@ Name | Type | Description | Notes
 **err** | [**\Messente\Omnichannel\Model\Err**](Err.md) |  | [optional] 
 **timestamp** | [**\DateTime**](\DateTime.md) | When this status was received by Omnichannel API | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
